@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "CoverView.h"
 @interface ViewController ()<RPPreviewViewControllerDelegate>
 
 @property (nonatomic, weak) UILabel *timeLable;
@@ -77,7 +77,7 @@ static int count = 0;
         if (error) {
             NSLog(@"start recorder error - %@",error);
         }
-        
+        [self.startBtn setTitle:@"Recording" forState:UIControlStateNormal];
     }];
 }
 
@@ -88,25 +88,39 @@ static int count = 0;
         return;
     }
     [recorder stopRecordingWithHandler:^(RPPreviewViewController * _Nullable previewViewController, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"stop error - %@",error);
+        }
+        [self.startBtn setTitle:@"start record" forState:UIControlStateNormal];
         previewViewController.previewControllerDelegate = self;
-        NSLog(@"subviews-%@",previewViewController.view.subviews);
-        NSLog(@"subviews-%@",previewViewController.view.subviews[0].subviews);
-        NSLog(@"subviews-%@",previewViewController.view.subviews[0].subviews[0].subviews);
-        
-        id view = previewViewController.view.subviews[0];
-        id remote = [view performSelector:@selector(remoteViewController)];
-        NSLog(@"remote- %@",remote);
+//        NSLog(@"subviews-%@",previewViewController.view.subviews);
+//        NSLog(@"subviews-%@",previewViewController.view.subviews[0].subviews);
+//        NSLog(@"subviews-%@",previewViewController.view.subviews[0].subviews[0].subviews);
+
+//        id view = previewViewController.view.subviews[0];
+//        id remote = [view performSelector:@selector(remoteViewController)];
+//        NSLog(@"remote- %@",remote);
         
         CGFloat width = [UIScreen mainScreen].bounds.size.width;
-        UIView *coverView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width - 100, 64)];
-        coverView.backgroundColor = [UIColor redColor];
-        [previewViewController.view addSubview:coverView];
+        CGFloat height = [UIScreen mainScreen].bounds.size.height;
+//        UIView *coverView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width - 50, 62)];
+//        coverView.backgroundColor = [UIColor redColor];
+//        [previewViewController.view addSubview:coverView];
+        CoverView *cover = [[CoverView alloc] init];
+        cover.frame = CGRectMake(0, 0, width, height);
+        cover.backgroundColor = [UIColor purpleColor];
+//        cover.alpha = 0.5;
+        cover.userInteractionEnabled = NO;
+//        [previewViewController.view.subviews[0].subviews[0] addSubview:cover];
         
         
-        SEL originalSelector = @selector(loadPreviewViewControllerWithMovieURL: completion:);
-        [previewViewController performSelector:originalSelector withObject:[NSURL URLWithString:@"good"] withObject:nil];
+//        SEL originalSelector = @selector(loadPreviewViewControllerWithMovieURL: completion:);
+//        [previewViewController performSelector:originalSelector withObject:[NSURL URLWithString:@"good"] withObject:nil];
         
-        [self presentViewController:previewViewController animated:YES completion:nil];
+//        [self presentViewController:previewViewController animated:YES completion:nil];
+        [self presentViewController:previewViewController animated:NO completion:^{
+            NSLog(@"complition");
+        }];
     }];
 }
 

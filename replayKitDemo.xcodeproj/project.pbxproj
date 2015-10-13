@@ -13,7 +13,10 @@
 		0B4EB5041BC4B71300091B3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B4EB5021BC4B71300091B3D /* Main.storyboard */; };
 		0B4EB5061BC4B71300091B3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B4EB5051BC4B71300091B3D /* Assets.xcassets */; };
 		0B4EB5091BC4B71300091B3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B4EB5071BC4B71300091B3D /* LaunchScreen.storyboard */; };
-		0B4EB5121BC5400100091B3D /* RPPreviewViewController+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B4EB5111BC5400100091B3D /* RPPreviewViewController+Swizzling.m */; settings = {ASSET_TAGS = (); }; };
+		0B4EB5121BC5400100091B3D /* RPPreviewViewController+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B4EB5111BC5400100091B3D /* RPPreviewViewController+Swizzling.m */; };
+		D60125DA1BC76BBB007D4024 /* CoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = D60125D91BC76BBB007D4024 /* CoverView.m */; settings = {ASSET_TAGS = (); }; };
+		D66462B71BC63CBF0057EAA2 /* RecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66462B61BC63CBF0057EAA2 /* RecordController.m */; settings = {ASSET_TAGS = (); }; };
+		D66462BB1BC63D620057EAA2 /* MediaToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D66462BA1BC63D620057EAA2 /* MediaToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,11 @@
 		0B4EB50A1BC4B71300091B3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B4EB5101BC5400100091B3D /* RPPreviewViewController+Swizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RPPreviewViewController+Swizzling.h"; sourceTree = "<group>"; };
 		0B4EB5111BC5400100091B3D /* RPPreviewViewController+Swizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RPPreviewViewController+Swizzling.m"; sourceTree = "<group>"; };
+		D60125D81BC76BBB007D4024 /* CoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoverView.h; sourceTree = "<group>"; };
+		D60125D91BC76BBB007D4024 /* CoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoverView.m; sourceTree = "<group>"; };
+		D66462B51BC63CBF0057EAA2 /* RecordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordController.h; sourceTree = "<group>"; };
+		D66462B61BC63CBF0057EAA2 /* RecordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordController.m; sourceTree = "<group>"; };
+		D66462BA1BC63D620057EAA2 /* MediaToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaToolbox.framework; path = System/Library/Frameworks/MediaToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D66462BB1BC63D620057EAA2 /* MediaToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +54,7 @@
 		0B4EB4ED1BC4B71300091B3D = {
 			isa = PBXGroup;
 			children = (
+				D66462BA1BC63D620057EAA2 /* MediaToolbox.framework */,
 				0B4EB4F81BC4B71300091B3D /* replayKitDemo */,
 				0B4EB4F71BC4B71300091B3D /* Products */,
 			);
@@ -67,10 +77,14 @@
 				0B4EB5001BC4B71300091B3D /* ViewController.m */,
 				0B4EB5101BC5400100091B3D /* RPPreviewViewController+Swizzling.h */,
 				0B4EB5111BC5400100091B3D /* RPPreviewViewController+Swizzling.m */,
+				D60125D81BC76BBB007D4024 /* CoverView.h */,
+				D60125D91BC76BBB007D4024 /* CoverView.m */,
 				0B4EB5021BC4B71300091B3D /* Main.storyboard */,
 				0B4EB5051BC4B71300091B3D /* Assets.xcassets */,
 				0B4EB5071BC4B71300091B3D /* LaunchScreen.storyboard */,
 				0B4EB50A1BC4B71300091B3D /* Info.plist */,
+				D66462B51BC63CBF0057EAA2 /* RecordController.h */,
+				D66462B61BC63CBF0057EAA2 /* RecordController.m */,
 				0B4EB4F91BC4B71300091B3D /* Supporting Files */,
 			);
 			path = replayKitDemo;
@@ -115,6 +129,7 @@
 				TargetAttributes = {
 					0B4EB4F51BC4B71300091B3D = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = EL653ZN3QZ;
 					};
 				};
 			};
@@ -157,6 +172,8 @@
 				0B4EB5011BC4B71300091B3D /* ViewController.m in Sources */,
 				0B4EB5121BC5400100091B3D /* RPPreviewViewController+Swizzling.m in Sources */,
 				0B4EB4FE1BC4B71300091B3D /* AppDelegate.m in Sources */,
+				D66462B71BC63CBF0057EAA2 /* RecordController.m in Sources */,
+				D60125DA1BC76BBB007D4024 /* CoverView.m in Sources */,
 				0B4EB4FB1BC4B71300091B3D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,9 +284,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = replayKitDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Lightning.replayKitDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = www.aipai.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -278,9 +297,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = replayKitDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Lightning.replayKitDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = www.aipai.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -304,6 +325,7 @@
 				0B4EB50F1BC4B71300091B3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
